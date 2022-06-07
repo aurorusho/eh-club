@@ -1,0 +1,33 @@
+.row, .firstRow {
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.row div, .firstRow div {
+    border: 1px black solid;
+    text-align: center;
+}
+.row {
+    font-size: 0.8em;
+}
+
+@media (max-width:1200px) {
+    .row, .firstRow {
+        font-size: 0.6em;
+    }
+}
+@media (max-width:990px) {
+    .row, .firstRow {
+        font-size: 0.6em;
+    }
+}
+@media (max-width:770px) {
+    .row, .firstRow {
+        font-size: 0.8em;
+    }
+}
+@media (max-width:250px) {
+    .row, .firstRow {
+        font-size: 0.5em;
+    }
+}

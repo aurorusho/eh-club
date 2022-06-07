@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.43407c39.css",
+    "main.js": "/static/js/main.af66fbcb.js",
+    "static/media/BIZUDGothic-Regular.ttf": "/static/media/BIZUDGothic-Regular.68fd86538451a7a25de3.ttf",
+    "static/media/triangle.png": "/static/media/triangle.e39353a6bd081eb9ff58.png",
+    "index.html": "/index.html",
+    "main.43407c39.css.map": "/static/css/main.43407c39.css.map",
+    "main.af66fbcb.js.map": "/static/js/main.af66fbcb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.43407c39.css",
+    "static/js/main.af66fbcb.js"
+  ]
+}

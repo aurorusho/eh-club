@@ -1,0 +1,128 @@
+.nav {
+    font-family: bizudGothic;
+    background: linear-gradient(90deg, rgb(110, 64, 150) 0%, rgb(72,64,180) 100%);
+
+    display: grid;
+    margin: 0;
+    grid-template-columns: 3fr 1fr;
+}
+
+.title {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 3%;
+
+
+    font-size: 1.7em;
+    color: aliceblue;
+}
+
+.register {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(90deg, rgb(128, 50,128) 0%, rgb(126, 64, 125) 100%);
+
+    font-size: 2.2em;
+    font-weight: bold;
+    color: aliceblue;
+
+    cursor: pointer;
+    user-select: none;
+}
+.mobileDisplay {
+    display: none;
+}
+.register:hover {
+    background: linear-gradient(90deg, rgb(128, 34, 128) 0%, rgb(128, 73, 127) 100%);
+}
+
+.register:active {
+    background: linear-gradient(90deg, rgb(126, 74, 126) 0%, rgb(128, 86, 127) 100%);
+
+}
+
+@media (max-width:915px) {
+    .title {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width:800px) {
+    .title {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width:770px) {
+    .register {
+        display: none;
+    }
+    .alwaysShow {
+        display: flex;
+    }
+    .mobileDisplay {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        background: aliceblue;
+    
+        font-size: 1.5em;
+        font-weight: bold;
+        font-family: bizudGothic;
+        color: purple;
+    
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
+@media (max-width:640px) {
+    .title {
+        font-size: 1em;
+    }
+
+    .register, .mobileDisplay {
+        font-size: 1em;
+    }
+}
+
+@media (max-width:540px) {
+    .title {
+        font-size: 0.8em;
+    }
+
+    .register {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width:430px) {
+    .title {
+        font-size: 0.7em;
+    }
+
+    .register {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width:380px) {
+    .title {
+        font-size: 0.5em;
+    }
+
+    .register {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width:300px) {
+    .register, .mobileDisplay {
+        border-radius: 0px !important;
+    }
+}

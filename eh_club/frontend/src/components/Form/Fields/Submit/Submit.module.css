@@ -1,0 +1,27 @@
+.buttonDiv {
+    text-align: center;
+    margin-top: 4%;
+}
+.button {
+    border-radius: 20px;
+    border: none;
+    
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    
+    color: aliceblue;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    background-color: rgb(160, 94, 222);
+
+    cursor: pointer;
+}
+.button:hover {
+    background-color: rgb(172, 120, 221);
+}
+.button:active {
+    background-color: rgb(137, 50, 219);
+}

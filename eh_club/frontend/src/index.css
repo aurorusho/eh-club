@@ -1,0 +1,17 @@
+body, #root {
+  min-height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  background: linear-gradient(90deg, rgb(93, 135, 250) 0%, rgb(47, 50, 255) 100%);
+}
+
+@font-face {
+  font-family: "bizudGothic";
+  src: url("./fonts/BIZUDGothic-Regular.ttf");
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}

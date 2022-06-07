@@ -1,0 +1,16 @@
+.container {
+    padding-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input {
+    width: 2vh;
+    height: 2vh;
+}
+@media (max-width:770px){
+    .input {
+        width: 3vh;
+        height: 3vh;
+    }
+}

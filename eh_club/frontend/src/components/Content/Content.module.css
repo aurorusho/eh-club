@@ -1,0 +1,24 @@
+.container {
+    width: 70vw;
+    display: inline-block;
+}
+.form {
+    display: inline-block;
+    width: 26vw;
+    background-color:rgba(245, 245, 220, 65%);
+    
+    margin-left: 2vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 5%;
+}
+@media (max-width:770px) {
+    .form{
+        width: 95vw;
+        margin-top: 3vw;
+    }
+}

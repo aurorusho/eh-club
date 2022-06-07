@@ -1,0 +1,112 @@
+.footer {
+    background: linear-gradient(90deg, rgb(72,64,180) 0%, rgb(110, 64, 150) 100%);
+    height: 5vw;
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+.textWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75vw;
+}
+.text {
+    font-size: 1.2em;
+    text-align: center;
+    color: rgb(167, 168, 169);
+    padding-bottom: 1%;
+    margin-bottom: 0;
+}
+
+.a {
+    color: rgb(203, 146, 203);
+}
+
+.whatsappLogoContainer {
+    display: none;
+}
+@media (max-width:1600px) {
+    .footer {
+        height: 6vw;
+    }
+}
+@media (max-width:1300px) {
+    .footer {
+        height: 7vw;
+    }
+}
+@media (max-width:1150px) {
+    .footer {
+        height: 8vw;
+    }
+}
+@media (max-width:1000px) {
+    .footer {
+        height: 11vw;
+    }
+}
+@media (max-width:770px) {
+    .footer {
+        height:17vh;
+        justify-content: space-between;
+    }
+    .text {
+        font-size: 1em;
+    }
+    .whatsappLogoContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 25vw;
+    }
+    .whatsappLogoLink {
+        display: flex;
+        justify-content: center;
+    }
+    .flexLinks {
+        display: flex;
+        align-items: center;
+    }
+    .questions {
+        background-color: beige;
+        width: 50%;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 2%;
+        padding-right: 2%;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .questionLink {
+        color: black;
+        text-decoration: none;
+    }
+    .textWrapper {
+        align-items: flex-end;
+    }
+
+}
+@media (max-width:700px) {
+    .footer {
+        height: 15vh;
+    }
+}
+@media (max-width:500px){
+    .questions {
+        width: 70%;
+    }
+}
+@media (max-width:400px){
+    .questions {
+        width: 80%;
+    }
+}
+@media (max-width:300px){
+    .questions {
+        width: 90%;
+    }
+}
