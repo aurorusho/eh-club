@@ -82,6 +82,7 @@ const Form = () => {
         }
         else if (group < 100 || group > 700) {
             dispatchError("Introduce un grupo válido");
+            return;
         }
         else if (!mail) {
             dispatchError("Introduce tu correo en el campo correspondiente");
