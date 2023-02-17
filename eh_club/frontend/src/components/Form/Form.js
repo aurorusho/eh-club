@@ -11,7 +11,8 @@ import Submit from './Fields/Submit/Submit';
 
 import targetBlank from '../../values/targetBlank';
 
-import {INITIAL_STATE, reducer} from './formReducer';
+import { INITIAL_STATE, reducer } from './utils/formReducer';
+import { getCookie } from './utils/getCookie';
 
 const Form = () => {
     const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
@@ -25,7 +26,34 @@ const Form = () => {
             dispatch({ type: action_type, value: ev.target.value });
         }
     }
-
+    const makeRequest = async ({firstName, lastName, group, mail, calendarData}) => {
+        const response = await fetch('api/submit', {
+            method: "POST",
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                group : Number(group),
+                mail,
+                calendarData,
+            }),
+            headers: {
+                "X-CSRFToken": getCookie('csrftoken')
+            }
+        });
+        const dispatchObj = {
+            type : 'formMsg',
+            value: {
+                ok : response.ok
+            }
+        };
+        if(!response.ok){
+            dispatch(dispatchObj);
+        }
+        // else:
+        dispatchObj.value.success = (await response.json()).success;
+        dispatch(dispatchObj);
+        
+    };
     const removeModal = () => {
         dispatch({ type: 'removeModal' });
     };
@@ -38,7 +66,8 @@ const Form = () => {
     };
     const submitHandler = (ev) => {
         ev.preventDefault();
-        const { firstName, lastName, group, mail} = state;
+        const { firstName, lastName, group, mail, checkbox, calendarData }
+            = state;
         if (!firstName) {
             dispatchError("Introduce tu nombre en el campo correspondiente");
             return;
@@ -51,7 +80,7 @@ const Form = () => {
             dispatchError("Introduce tu grupo en el campo correspondiente");
             return;
         }
-        else if(group < 100 || group > 700){
+        else if (group < 100 || group > 700) {
             dispatchError("Introduce un grupo válido");
         }
         else if (!mail) {
@@ -64,17 +93,17 @@ const Form = () => {
         }
         // There is at least one selected hour
         let atLeastOne = false;
-        for(let key in state.calendarData){
-            if(state.calendarData[key].length){
+        for (let key in calendarData) {
+            if (calendarData[key].length) {
                 atLeastOne = true;
                 break;
             }
         }
-        if(!atLeastOne){
+        if (!atLeastOne) {
             dispatchError('No seleccionaste ningún horario disponible');
             return;
         }
-        if (!state.checkbox) {
+        if (!checkbox) {
             const link = <a href="/Reglamento_club.pdf" {...targetBlank}>reglamento</a>
             const msg = (
                 <>
@@ -84,11 +113,14 @@ const Form = () => {
             dispatchError(msg);
             return;
         }
+        makeRequest(state);
     }
 
     const checkboxValue = state.checkbox ? true : "";
+    const formMsgColor = state.formMsg[0] ? 'red' : 'green';
+    const formMsgClassName = `${styles.formMsg} ${styles[formMsgColor]}`
     return (
-        <form className={styles.form} onSubmit={submitHandler}>
+        <form onSubmit={submitHandler}>
             {state.errorModal}
             <NameInputs
                 firstNameValue={state.firstName}
@@ -107,6 +139,7 @@ const Form = () => {
             <Calendar clickHandler={calendarClickHandler} />
             <Checkbox changeHandler={changeHandler('checkbox')} value={checkboxValue} />
             <Submit />
+            <div className={formMsgClassName}>{ state.formMsg }</div>
         </form>
     )
 }

@@ -1,7 +1,8 @@
 from django.db import models
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 
-from .validators import email_extension_validator
+from .validators import email_validator
+
 
 class Register(models.Model):
     """
@@ -10,15 +11,14 @@ class Register(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     group = models.IntegerField(validators=[
+        MinValueValidator(100),
         MaxValueValidator(700)
     ])
     mail = models.EmailField(validators=[
-        email_extension_validator('uanl.edu.mx')
+        email_validator
     ])
-    monday = models.JSONField()
-    tuesday = models.JSONField()
-    wednesday = models.JSONField()
-    thursday = models.JSONField()
-    friday = models.JSONField()
-    saturday = models.JSONField()
+    calendar  = models.JSONField()
     time_uploaded = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.mail

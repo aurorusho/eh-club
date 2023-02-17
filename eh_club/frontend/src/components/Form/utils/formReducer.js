@@ -1,4 +1,5 @@
-import ErrorModal from "../UI/ErrorModal/ErrorModal";
+import ErrorModal from "../../UI/ErrorModal/ErrorModal";
+import { changeCalendarColor } from "./changeCalendarColor";
 
 const INITIAL_STATE = {
     firstName: '',
@@ -14,7 +15,8 @@ const INITIAL_STATE = {
         'J': [],
         'V': [],
         'S': []
-    }
+    },
+    formMsg: [false, ''],
 };
 
 const reducer = (state, action) => {
@@ -81,7 +83,31 @@ const reducer = (state, action) => {
                 ...state,
                 errorModal: <></>
             };
-            break
+            break;
+        case 'formMsg':
+            // requires action.value
+            let msg = 'Se ha enviado exitosamente!';
+            let isError = false;
+            // if there is an error with the http request
+            if(!action.value.ok){
+                msg = 'Hubo un error al enviar tus datos, intenta más tarde o contáctanos al whatsapp';
+                isError = true;
+            }
+            // if there is an error with the data
+            else if(!action.value.success){
+                msg = 'Enviaste datos no válidos, verifica que hayas rellenado todos los campos correctamente';
+                isError = true;
+            }
+            // If there are no errors, restart the state
+            if(!isError){
+                changeCalendarColor(state.calendarData, 'aliceblue');
+                newState = INITIAL_STATE;
+            }
+            newState = {
+                ...newState,
+                formMsg : [isError, msg]
+            }
+            break;
         case 'sessionStorage':
             // Excecuted in useEffect(() => {}, [])
             const data = JSON.parse(window.sessionStorage.getItem('data'));
@@ -94,16 +120,12 @@ const reducer = (state, action) => {
                 ...data
             };
             const { calendarData } = newState;
-            for (let day in calendarData) {
-                for (let i of calendarData[day]) {
-                    document.getElementById(day + i).style.backgroundColor = 'green';
-                }
-            }
+            changeCalendarColor(calendarData, 'green');
             break
         default:
             break
     }
-    const { errorModal, ...storage } = newState;
+    const { errorModal, formMsg, ...storage } = newState;
     window.sessionStorage.setItem('data', JSON.stringify(storage));
     return newState;
 };

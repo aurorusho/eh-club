@@ -1,14 +1,11 @@
 from django.core.exceptions import ValidationError
 
-
-def email_extension_validator(domain : str):
+DOMAIN : str = "uanl.edu.mx"
+def email_validator(value : str):
     """
-    Returns a function validator, checks that a string ends
-    with a certain domain
+    Validates if an e-mail address has a specified domain
     """
-    def validator(value : str):
-        if not value.endswith(f"@{domain}"):
-            raise ValidationError(
-                f'Se necesita un dominio @{domain} para el registro'
-            )
-    return validator
+    if not value.endswith(f"@{DOMAIN}"):
+        raise ValidationError(
+            f'Se necesita un dominio @{DOMAIN} para el registro'
+        )

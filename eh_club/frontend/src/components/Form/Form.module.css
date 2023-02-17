@@ -1,0 +1,22 @@
+.formMsg {
+    text-align: center;
+    padding: 2%;
+}
+.green {
+    color: green;
+}
+.red {
+    color: red;
+}
+@media(max-width:770px){
+    .formMsg {
+        font-size: 1.5em;
+        padding-top: 5%;
+    }
+}
+@media(min-width:1770px){
+    
+    .formMsg {
+        font-size: 1.5em;
+    }
+}
