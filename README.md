@@ -1,4 +1,4 @@
-# Ethical Hacking CLub
+# Ethical Hacking Club
 Backend and frontend for ethical hacking club page
 
 ## Running at local machine
@@ -38,4 +38,12 @@ As this source code is only available publically because of love to open source,
 you wish, you can change the database config in settings.py
 
 ## Running version of the site:
-[Will be added briefly]
+https://ehcideb.pythonanywhere.com/
+
+Running in free version of pythonanywhere because of lack of resources
+
+Thank you pythonanywhere <3
+
+Note: The page suffered little changes from the code displayed here because of the mentiones security and db issues, as well as because of problems uploading to production
+
+[Page still not stable]
