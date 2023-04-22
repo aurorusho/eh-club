@@ -44,6 +44,6 @@ Running in free version of pythonanywhere because of lack of resources
 
 Thank you pythonanywhere <3
 
-Note: The page suffered little changes from the code displayed here because of the mentiones security and db issues, as well as because of problems uploading to production
+Note: The page suffered little changes from the code displayed here because of the mentioned security and db issues, as well as because of problems uploading to production
 
 [Page still not stable]
