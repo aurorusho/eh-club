@@ -7,6 +7,7 @@ To clone this project to your local machine, it is as simple as following:
 Clone and create venv
 ```
 $ git clone https://github.com/aurorusho/eh-club.git
+$ cd eh-club
 $ python3 -m venv venv
 $ . venv/bin/activate
 ```
